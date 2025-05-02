@@ -1,0 +1,102 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:latest
+    container_name: bakery_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bakery_user
+      POSTGRES_PASSWORD: bakery_pass
+      POSTGRES_DB: bakery_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  backend:
+    build: ./backend
+    container_name: bakery_backend
+    restart: unless-stopped
+    depends_on:
+      - db
+      - rabbitmq
+    environment:
+      DATABASE_URL: "postgresql://bakery_user:bakery_pass@db:5432/bakery_db"
+      RABBITMQ_HOST: "rabbitmq"
+      RABBITMQ_PORT: "5672"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  frontend:
+    build: ./frontend
+    container_name: bakery_frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: bakery_rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  worker:
+    build:
+      context: .
+      dockerfile: ./worker/dockerfile
+    container_name: bakery_worker
+    restart: unless-stopped
+    depends_on:
+      - db
+      - rabbitmq
+    environment:
+      DATABASE_URL: "postgresql://bakery_user:bakery_pass@db:5432/bakery_db"
+      RABBITMQ_HOST: "rabbitmq"
+      RABBITMQ_PORT: "5672"
+    volumes:
+      - ./worker:/app
+      - ./backend:/backend
+    command: python worker.py
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  pgdata:

@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #f1f5f9, #fdf0f7);
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+  background: linear-gradient(to right, #a18cd1, #fbc2eb);
+  padding: 30px 0;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.welcome-text {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.bakery-title {
+  font-size: 3.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #6a0572;
+  margin-bottom: 30px;
+}
+
+/* Grid Layout for Sections */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* Tile Cards */
+.tile {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 1.7rem;
+  color: #4b145b;
+  margin-bottom: 20px;
+}
+
+/* Form and Inputs */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #e0d4ec;
+  font-size: 1rem;
+  background-color: #f9f9ff;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #b983ff;
+  background-color: #ffffff;
+}
+
+/* Buttons */
+.button {
+  background: linear-gradient(to right, #b983ff, #ff7eb3);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  box-shadow: 0 10px 20px rgba(185, 131, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.order-button {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+}
+
+/* Menu List */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+/* Order Status */
+.status-item {
+  background: #e0f4ff;
+  padding: 12px 15px;
+  border-left: 6px solid #4098d7;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  color: #2b5d8a;
+  font-weight: 500;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.divider {
+  border: none;
+  border-top: 2px dashed #d6c6e1;
+  margin: 30px 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #6a0572;
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.07);
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-item {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-item:hover {
+  color: #ff7eb3;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .welcome-text {
+    font-size: 2rem;
+  }
+
+  .bakery-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
