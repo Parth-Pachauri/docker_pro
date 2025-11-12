@@ -183,27 +183,28 @@ json
   "message": "Order status updated successfully"
 }
 
-📁 Folder Structure
+## 📁 Folder Structure
+
 BakeOps/
-├── backend/                     # Flask backend API
-│   ├── app.py                   # Main Flask application
-│   ├── requirements.txt         # Backend dependencies
-│   └── Dockerfile               # Backend Dockerfile
+├── 📦 backend/                     # Flask backend API
+│   ├── 🧠 app.py                   # Main Flask application
+│   ├── 📋 requirements.txt         # Backend dependencies
+│   └── 🐳 Dockerfile               # Backend Dockerfile
 │
-├── frontend/                    # React frontend
-│   ├── src/
-│   │   ├── App.js               # Main React app
-│   │   ├── Admin.js             # Admin panel
+├── 💻 frontend/                    # React frontend
+│   ├── 📂 src/
+│   │   ├── ⚛️ App.js               # Main React app
+│   │   ├── 🛠️ Admin.js            # Admin panel
 │   │   └── ...
-│   ├── package.json             # Frontend dependencies
-│   └── Dockerfile               # Frontend Dockerfile
+│   ├── 📦 package.json             # Frontend dependencies
+│   └── 🐳 Dockerfile               # Frontend Dockerfile
 │
-├── worker/                      # RabbitMQ consumer (optional)
-│   ├── worker.py
-│   └── requirements.txt
+├── 🐇 worker/                      # RabbitMQ consumer (optional)
+│   ├── 🧩 worker.py
+│   └── 📋 requirements.txt
 │
-├── docker-compose.yml           # Multi-service orchestration
-└── README.md                    # This file
+├── ⚙️ docker-compose.yml           # Multi-service orchestration
+└── 📖 README.md                    # Project documentation
 
 
 
