@@ -183,21 +183,60 @@ json
   "message": "Order status updated successfully"
 }
 
-**Folder Structure**
-├── backend/                # Flask backend API
-│   ├── app.py              # Main Flask application
-│   ├── requirements.txt    # Backend dependencies
-│   └── Dockerfile          # Dockerfile for backend
-├── frontend/               # React frontend
+📁 Folder Structure
+BakeOps/
+├── backend/                     # Flask backend API
+│   ├── app.py                   # Main Flask application
+│   ├── requirements.txt         # Backend dependencies
+│   └── Dockerfile               # Backend Dockerfile
+│
+├── frontend/                    # React frontend
 │   ├── src/
-│   │   ├── App.js          # Main React app
-│   │   ├── Admin.js        # Admin panel
+│   │   ├── App.js               # Main React app
+│   │   ├── Admin.js             # Admin panel
 │   │   └── ...
-│   ├── package.json        # Frontend dependencies
-│   ├── Dockerfile          # Dockerfile for frontend
-├── docker-compose.yml      # Docker Compose configuration
-└── README.md               # This file
+│   ├── package.json             # Frontend dependencies
+│   └── Dockerfile               # Frontend Dockerfile
+│
+├── worker/                      # RabbitMQ consumer (optional)
+│   ├── worker.py
+│   └── requirements.txt
+│
+├── docker-compose.yml           # Multi-service orchestration
+└── README.md                    # This file
 
 
+
+📊 Tech Stack
+| Category             | Technologies           |
+| -------------------- | ---------------------- |
+| **Frontend**         | React.js               |
+| **Backend**          | Flask (Python)         |
+| **Database**         | PostgreSQL             |
+| **Messaging**        | RabbitMQ               |
+| **Containerization** | Docker, Docker Compose |
+| **Monitoring**       | Prometheus (optional)  |
+
+🧠 Future Enhancements
+
+🔐 Implement JWT-based authentication
+
+☁️ Deploy on AWS ECS or EC2
+
+🧮 Add Redis caching for frequent queries
+
+📊 Create analytics dashboard for admins
+
+⚙️ Integrate CI/CD pipeline using GitHub Actions
+
+💡 Inspiration
+
+BakeOps is designed to simulate a real-world DevOps-ready microservice system, showcasing:
+
+Scalable service design
+
+Asynchronous messaging via RabbitMQ
+
+End-to-end containerized deployment
 
 
